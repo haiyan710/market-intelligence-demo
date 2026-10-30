@@ -16,21 +16,42 @@ An OTA has to understand flight capacity and distribution, hotel supply, destina
 
 It does not use booking, customer or sales data, and it does not prescribe commercial actions. [The OTA value map](docs/ota-benefits.md) explains the questions it helps analysts frame across product lines.
 
-## How I designed the system
+## System architecture
 
 ```mermaid
-flowchart LR
-    A[Public news and market data] --> B[Collect and normalize]
-    B --> C[Classify and group developments]
-    C --> D[Specialist analysis]
-    D --> E[Editorial selection and evidence checks]
-    E --> F[Canonical edition artifact]
-    F --> G[Reader brief]
-    F --> H[Operator quality review]
-    H --> I[Human feedback for later editions]
+flowchart TB
+    A[Public news, reports and market series] --> B[Collect, normalize and date sources]
+    B --> C[(Article store and annotations)]
+    C --> D[Four specialist desks]
+    D --> E[Cross-desk coordinator]
+    D --> F[Opportunity register and event ledger]
+    E --> G[Edition editor: one consolidation pass]
+    F --> G
+    G --> H[Typed edition artifact and release checks]
+    H --> I[Reader brief]
+    H --> J[Operator QC view]
+    I --> K[Private delivery and human feedback]
+    J --> K
+    K --> F
 ```
 
-The underlying private system uses local scheduled collection, structured article storage, model-assisted specialist analysis and editorial selection. A canonical edition artifact feeds deterministic reader and quality-control renderers, so the two views share the same facts. Quality checks cover source dates, headline centrality, duplicate developments, line balance and source-to-claim traceability. See [architecture](docs/architecture.md), [engineering notes](docs/engineering.md) and [editorial workflow](docs/workflow.md) for the design decisions.
+The underlying private system uses local scheduled collection, SQLite article and cross-edition state, model-assisted specialist analysis and one editorial selection pass. A typed edition artifact feeds deterministic reader and quality-control renderers, so the two views share the same facts. Quality checks cover source dates, headline centrality, duplicate developments, line balance and source-to-claim traceability. The [architecture deep dive](docs/architecture-deep-dive.md) maps the stores, contracts, release gates and failure paths; [engineering notes](docs/engineering.md) and [editorial workflow](docs/workflow.md) explain the design decisions.
+
+## Agents and orchestration
+
+The implemented edition runtime has **four specialist desk calls**, a cross-desk check, an opportunity-memory stage and **one edition-editor pass**. It is a bounded workflow with typed handoffs, not dozens of independent agents running freely.
+
+| Role | Owns | Handoff |
+| --- | --- | --- |
+| Macro and policy desk | FX, energy, policy and ongoing disruptions as travel demand or cost drivers | Dated context and candidate signals |
+| Aviation desk | Routes, capacity, fares and air-content distribution | Flight developments and content hypotheses |
+| Stay and experiences desk | Hotels, premium stays, destinations and experiences | Stay developments and product-fit hypotheses |
+| Distribution and competition desk | OTA channels, travel technology, metasearch and new interfaces | Cross-product channel developments |
+| Coordinator | Cross-desk forwards and conflicting factual claims | Alerts and a consistency report |
+| Opportunity memory | Earlier signals and event threads | New-versus-existing evidence and radar candidates |
+| Edition editor | Selection, ranking and reader narrative | One canonical edition artifact for deterministic validation and rendering |
+
+Classification, situation tracking, entity roles, text measures, health checks and the knowledge maintainer surround that core flow. Some use a model through a shared adapter; others are deterministic. The [agent roster and orchestration guide](docs/agents-and-orchestration.md) distinguishes every role, handoff and rollout state.
 
 | Design decision | Why it matters |
 | --- | --- |
@@ -62,7 +83,7 @@ Read the [sample case](docs/sample-case.md) and [example guide](examples/README.
 ## Repository map
 
 ```text
-docs/       architecture, workflow, OTA value, sample case and limitations
+docs/       deep architecture, agent roster, workflow, OTA value and limits
 examples/   synthetic input, small offline builder and sample HTML views
 assets/     screenshot of the fictional reader brief
 ```
