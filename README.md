@@ -1,10 +1,25 @@
 # Travel Market Intelligence for OTAs
 
-**An architecture case study and runnable, fictional sample of an evidence-led travel intelligence system.** It turns public market developments into a short brief with traceable facts and conditional hypotheses for a multi-product online travel agency (OTA).
+**A multi-agent AI architecture case study with a runnable, fictional data-pipeline sample.** The implemented private system turns public market developments into an OTA brief with traceable facts and conditional hypotheses. This portfolio shows where model judgment enters that workflow and which checks remain in code.
 
 **[See the complete sample brief below](#complete-sample-brief)** · [Open the HTML edition](examples/interactive-demo.html)
 
 > **Portfolio disclosure:** Avenra Travel, the continent of Caelora, every supplier, event, number and source record in the sample are invented. The system described here is adapted from a separate private project. This repository is a shareable reference slice, not that project's source code, live pipeline, client data or measured business results.
+
+## Where AI is used
+
+The private pipeline is an **orchestrated set of bounded model calls**, each with a specific input and structured handoff. A shared Claude CLI adapter handles those calls; the scheduled pipeline does not let the model browse for evidence.
+
+| AI stage | What it receives | What it produces |
+| --- | --- | --- |
+| Article classifier | Collected public article text, taxonomy and active situations | Desk routing, topic/entity labels, urgency and confidence |
+| Four specialist desks | Bounded, dated sources plus a travel-market causal map and relevant context | Candidate factual stories, conditional `so_what`, opportunity hypotheses, evidence references and falsifiers |
+| Cross-desk coordinator | The desks' candidate facts | AI flags possible factual contradictions; code checks unconsumed handoffs. It does **not** select the brief |
+| Opportunity matching | New candidate events and prior threads | A judgment on ambiguous same-versus-new developments; code persists event and revision state |
+| Edition editor | Desk candidates, source metadata, prior editions and opportunity context | **One** structured editorial selection with factual headlines, source-linked facts and reader narrative |
+| Knowledge maintainer | Accepted edition and touched entity records | Draft updates to narrative entity pages after the edition; it cannot rewrite the brief |
+
+Code controls collection, source IDs, SQLite state, date windows, schema and citation validation, duplicate/release checks, ranking adjustments and rendering of reader/QC views. The model proposes analysis and editorial choices within those boundaries; humans make commercial decisions. [See the AI workflow and fictional handoff trace](docs/ai-workflow.md) for the exact responsibilities and failure behavior.
 
 ## Run the data pipeline
 
@@ -52,7 +67,7 @@ The underlying private system uses local scheduled collection, SQLite article an
 
 ## Agents and orchestration
 
-The implemented edition runtime has **four specialist desk calls**, a cross-desk check, an opportunity-memory stage and **one edition-editor pass**. It is a bounded workflow with typed handoffs, not dozens of independent agents running freely.
+The implemented edition runtime can invoke **up to four enabled specialist desks**, a cross-desk check, opportunity-memory stages and **one edition-editor pass**. It is a bounded workflow with typed handoffs, not dozens of independent agents running freely.
 
 | Role | Owns | Handoff |
 | --- | --- | --- |
@@ -64,7 +79,7 @@ The implemented edition runtime has **four specialist desk calls**, a cross-desk
 | Opportunity memory | Earlier signals and event threads | New-versus-existing evidence and radar candidates |
 | Edition editor | Selection, ranking and reader narrative | One canonical edition artifact for deterministic validation and rendering |
 
-Classification, situation tracking, entity roles, text measures, health checks and the knowledge maintainer surround that core flow. Some use a model through a shared adapter; others are deterministic. The [agent roster and orchestration guide](docs/agents-and-orchestration.md) distinguishes every role, handoff and rollout state.
+Classification, situation tracking, entity roles, text measures, health checks and the knowledge maintainer surround that core flow. Some use a model through a shared adapter; others are deterministic. The [agent roster](docs/agents-and-orchestration.md) and [AI workflow](docs/ai-workflow.md) distinguish every role, handoff and rollout state.
 
 ## How an opportunity is reasoned about
 
@@ -123,7 +138,7 @@ Read the [sample case](docs/sample-case.md) and [example guide](examples/README.
 ## Repository map
 
 ```text
-docs/       deep architecture, agent roster, workflow, OTA value and limits
+docs/       AI handoffs, deep architecture, agent roster, workflow, OTA value and limits
 reference_pipeline/   fictional sources, SQLite pipeline, tests and generated views
 examples/   synthetic opportunity input, small builder and curated HTML brief
 assets/     screenshot of the fictional reader brief

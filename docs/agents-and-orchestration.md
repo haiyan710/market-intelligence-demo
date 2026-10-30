@@ -23,7 +23,7 @@ flowchart TB
     F --> C
 ```
 
-The four desks are bounded model-assisted analysis roles, each invoked once for an edition. They do not browse the web during the scheduled run; they reason over collected, dated material. The coordinator and editor have distinct jobs: the coordinator checks agreement across desks, while the editor decides what enters the edition. A schema-validated artifact and code-level checks sit between model output and publication.
+The four desks are bounded model-assisted analysis roles, invoked in sequence once per edition when enabled. A disabled desk emits a typed disabled record without a model call. The desks do not browse the web during the scheduled run; they reason over collected, dated material. The coordinator and editor have distinct jobs: the coordinator checks agreement across desks, while the editor decides what enters the edition. A schema-validated artifact and code-level checks sit between model output and publication. [The AI workflow map](ai-workflow.md) lists every principal model handoff and a fictional source-to-brief trace.
 
 ## The four analysis desks
 

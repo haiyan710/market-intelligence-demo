@@ -1,6 +1,6 @@
 # Architecture deep dive
 
-This document describes the **implemented system pattern** behind this portfolio at a public-safe level. The portfolio itself is an **offline simulation** for Avenra Travel, a fictional OTA on the fictional continent of Caelora. It contains no production source corpus, private business data, credentials, delivery setup, hosted application, or measured customer result. The [offline example](../examples/README.md) illustrates selected contracts; it does not implement the full architecture below.
+This document describes the **implemented system pattern** behind this portfolio at a public-safe level. The portfolio itself is an **offline simulation** for Avenra Travel, a fictional OTA on the fictional continent of Caelora. It contains no production source corpus, private business data, credentials, delivery setup, hosted application, or measured customer result. The [runnable reference pipeline](../reference_pipeline/README.md) and [curated brief](../examples/README.md) illustrate selected contracts; neither implements the model-assisted architecture below. The [AI workflow map](ai-workflow.md) shows the model-call boundaries.
 
 ## System boundary
 
@@ -63,7 +63,7 @@ The article store supports source-level provenance and classification. Cross-edi
 
 A newer event → thread → revision ledger is evaluated alongside the earlier tracking path. With no rollout switch, it runs in **shadow mode** and records a projection without changing the reader edition. The current controlled rollout uses **reader mode for the scheduled edition's radar and lower-priority routing**, with stricter failure handling. The application-wide radar projection remains in shadow mode. This distinction is about the present rollout state, not a promise that every surface has switched to the new ledger.
 
-The portfolio sample uses a small JSON fixture and generated HTML instead of these stores. Its four synthetic records are not copied from the private system.
+The portfolio has two separate synthetic examples: `reference_pipeline/` ingests six source records into SQLite and generates an edition JSON plus simpler reader/QC HTML; `examples/` contains a small opportunity builder and a richer curated brief. Neither runs the private agents or uses real source records.
 
 ## Edition contract
 
@@ -126,8 +126,8 @@ The example below uses a record created for this portfolio, not a real publisher
 | Artifact and render | The reader signal links to F-01 and shows its as-of date. A QC view could record missing catalogue comparison as an evidence limit. |
 | Radar thread | Hypothesis: a channel-specific content gap may exist. Falsifier: a dated feed comparison shows equivalent bundles already available. |
 
-This trace demonstrates the boundary between a **fictional source statement** and a **conditional interpretation**. The offline script in the examples directory implements only fixture loading, simple illustrative ranking and HTML rendering; it does not claim to reproduce the full analysis, stores or release controls described above.
+This trace demonstrates the boundary between a **fictional source statement** and a **conditional interpretation**. The [AI workflow trace](ai-workflow.md#fictional-handoff-trace-kivora-bundles) shows the agent handoffs in more detail. The public reference pipeline demonstrates source storage and selected release controls without executing the model-assisted analysis; the small builder in `examples/` illustrates opportunity fields and ranking.
 
 ## Portfolio boundary
 
-The documented architecture is a pattern derived from an implemented private project. This shareable portfolio is deliberately narrower: synthetic inputs, a small offline script, a static reader page and explanatory documents. It excludes the production codebase, actual source list, operational identifiers, credentials, private URLs, delivery configuration, internal business context and real edition artifacts. Its value is the inspectable design of provenance, editorial contracts and reader presentation, not a claim of deployment for Avenra Travel.
+The documented architecture is a pattern derived from an implemented private project. This shareable portfolio is deliberately narrower: synthetic inputs, a runnable offline SQLite pipeline, a small opportunity builder, a curated reader page and explanatory documents. It excludes the production codebase, model integration, actual source list, operational identifiers, credentials, private URLs, delivery configuration, internal business context and real edition artifacts. Its value is the inspectable design of provenance, agent handoffs, editorial contracts and reader presentation, not a claim of deployment for Avenra Travel.

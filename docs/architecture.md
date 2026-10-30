@@ -36,7 +36,7 @@ Source records and dated reports
 
 The private project behind this case study implements a scheduled, local source-to-brief pipeline. It gathers external material, stores normalized articles, uses model-assisted classification and specialist analysis, consolidates candidates in an edition editor, and applies deterministic validation before rendering a reader brief and a separate quality-control view. Its delivery and private archive are downstream of the canonical edition artifact. These are architectural descriptions, not a public service offered by this repository.
 
-This portfolio repository contains an **offline reference slice** of that pattern: a fictional OTA profile, invented source cards, a self-contained reader page and the documentation needed to inspect the editorial logic. The source cards are part of the imagined world; they are not external citations. The repository does not contain the full scheduler, collection corpus, model integration, private storage, delivery configuration or production application. Reproducing the page locally does not execute those systems.
+This portfolio repository contains an **offline reference slice** of that pattern: a fictional OTA profile, invented source cards, a [runnable SQLite source-to-edition pipeline](../reference_pipeline/README.md), a separately curated [full reader brief](../examples/interactive-demo.html), and an [AI handoff map](ai-workflow.md). The source cards are part of the imagined world; they are not external citations. The runnable slice makes no model calls and does not contain the full scheduler, collection corpus, private storage, delivery configuration or production application.
 
 ## Evidence contract
 
