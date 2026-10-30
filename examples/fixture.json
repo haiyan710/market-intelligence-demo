@@ -1,0 +1,53 @@
+{
+  "scenario": "Fictional portfolio simulation — no real company, place, source, or market fact",
+  "company": "Avenra Travel",
+  "continent": "Caelora",
+  "edition_date": "2026-10-30",
+  "window": "26–29 Oct 2026",
+  "records": [
+    {
+      "id": "F-01",
+      "line": "flight",
+      "source": "Kivora Air scenario notice",
+      "published": "2026-10-27",
+      "headline": "Kivora Air publishes direct-connect bundles on the Lyria–Mora route",
+      "fact": "The fictional notice lists three fare bundles on Kivora Air's direct-connect channel for Lyria–Mora; two include checked baggage.",
+      "hypothesis": "If those bundles are unavailable through Avenra's existing air feeds, comparable fares could differ by channel. The size of any gap depends on actual feed coverage and demand.",
+      "relevance": 3,
+      "evidence": 2
+    },
+    {
+      "id": "H-01",
+      "line": "hotel",
+      "source": "Selune Stays scenario catalogue",
+      "published": "2026-10-28",
+      "headline": "Selune Stays lists 18 wellness properties in the Solenne region",
+      "fact": "The fictional catalogue adds 18 wellness properties across Solenne, with package inclusions published for 11.",
+      "hypothesis": "If Avenra's premium stay catalogue has limited Solenne wellness depth, this addition could widen the visible assortment gap. The effect requires comparable inventory and search data.",
+      "relevance": 3,
+      "evidence": 2
+    },
+    {
+      "id": "F-02",
+      "line": "flight",
+      "source": "Orivo Air scenario schedule",
+      "published": "2026-10-26",
+      "headline": "Orivo Air schedules 14% more seats on the Vela–Iskar corridor",
+      "fact": "The fictional schedule shows 14% more scheduled seats on Vela–Iskar for the next six weeks than its preceding file.",
+      "hypothesis": "Additional scheduled capacity could affect available fares if the seats operate and demand does not absorb them. No fare or booking outcome is assumed.",
+      "relevance": 2,
+      "evidence": 2
+    },
+    {
+      "id": "H-02",
+      "line": "hotel",
+      "source": "Teralis Lodges scenario bulletin",
+      "published": "2026-10-29",
+      "headline": "Teralis Lodges adds refundable API rates for 42 properties",
+      "fact": "The fictional API bulletin identifies 42 properties with newly published refundable rate plans.",
+      "hypothesis": "If Avenra receives these rate plans and they are price-competitive, the change could broaden flexible hotel options. Catalogue availability remains unverified.",
+      "relevance": 2,
+      "evidence": 2
+    }
+  ]
+}
