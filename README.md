@@ -2,7 +2,7 @@
 
 **An architecture case study and runnable, fictional sample of an evidence-led travel intelligence system.** It turns public market developments into a short brief with traceable facts and conditional hypotheses for a multi-product online travel agency (OTA).
 
-![Fictional Avenra Travel brief](assets/avenra-brief.png)
+**[See the complete sample brief below](#complete-sample-brief)** · [Open the HTML edition](examples/interactive-demo.html)
 
 > **Portfolio disclosure:** Avenra Travel, the continent of Caelora, every supplier, event, number and source record in the sample are invented. The system described here is adapted from a separate private project. This repository is a shareable reference slice, not that project's source code, live pipeline, client data or measured business results.
 
@@ -75,11 +75,27 @@ The [opportunity reasoning guide](docs/opportunity-reasoning.md) provides the de
 
 The [scope and limitations](docs/limitations.md) page distinguishes this portfolio reference from the private implementation.
 
-## Explore the fictional sample
+## Complete sample brief
 
 The sample OTA, **Avenra Travel**, is assumed to sell flights, hotels and premium stays, destination experiences and partner distribution in fictional Caelora.
 
-**Start with the [Avenra Market Brief](examples/interactive-demo.html)**, the reader-facing sample shown above. It follows the current brief's editorial flow: what changed by product line, ranked stories, a short digest, market context, ongoing situations and hypotheses with falsifiers. Every source link opens an embedded fictional record.
+The full reader edition is displayed below. It contains:
+
+| Reading layer | What the sample shows |
+| --- | --- |
+| **What changed for us** | A four-line scan across flights, hotels, distribution and discovery, with links to the leading stories. |
+| **Top stories** | Four ranked, source-linked developments with a factual headline, what changed, a conditional OTA implication and expandable analysis. |
+| **In brief** | Shorter developments grouped by flight, hotel, distribution and backdrop. |
+| **Markets** | A dated, explicitly fictional FX, cost and travel-indicator strip. |
+| **Ongoing situations** | Two continuing themes connecting recent evidence without treating a one-off event as a trend. |
+| **Opportunity radar** | Three hypotheses, each with a factual event, falsifier and dated evidence. |
+| **Source ledger** | Nine embedded fictional records so every sample claim can be traced without presenting invented sources as real publications. |
+
+![Complete fictional Avenra Market Brief, from masthead through source ledger](assets/avenra-full-brief.png)
+
+Open the [HTML edition](examples/interactive-demo.html) to use its story and source links and expand the analysis notes. The screenshot shows the entire brief, including the source ledger; all names, places, events, sources and figures are synthetic.
+
+### Inspect the offline code slice
 
 To inspect a small offline implementation of the source-to-brief flow, run:
 
