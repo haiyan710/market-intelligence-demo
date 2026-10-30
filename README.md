@@ -29,7 +29,7 @@ The private pipeline is an **orchestrated set of bounded model calls**, each wit
 | Edition editor | Desk candidates, source metadata, prior editions and opportunity context | **One** structured editorial selection with factual headlines, source-linked facts and reader narrative |
 | Knowledge maintainer | Accepted edition and touched entity records | Draft updates to narrative entity pages after the edition; it cannot rewrite the brief |
 
-Code controls collection, source IDs, SQLite state, date windows, schema and citation validation, duplicate/release checks, ranking adjustments and rendering of reader/QC views. The model proposes analysis and editorial choices within those boundaries; humans make commercial decisions. [See the AI workflow and fictional handoff trace](docs/ai-workflow.md) for the exact responsibilities and failure behavior.
+Code controls collection, source IDs, SQLite state, date windows, schema and citation validation, duplicate/release checks, ranking adjustments and rendering of reader/QC views. The model proposes analysis and editorial choices within those boundaries; humans make commercial decisions. **[Inspect the sanitized agent config and prompt excerpts](agent_specs/README.md)** to see the instructions and JSON handoffs; the [AI workflow trace](docs/ai-workflow.md) explains their order and failure behavior.
 
 ## Run the data pipeline
 
@@ -149,6 +149,7 @@ Read the [sample case](docs/sample-case.md) and [example guide](examples/README.
 
 ```text
 docs/       case study, design decisions, AI handoffs, architecture and limits
+agent_specs/   sanitized config and prompt excerpts for classifier, desks, coordinator, matcher and editor
 reference_pipeline/   fictional sources, SQLite pipeline, tests and generated views
 examples/   synthetic opportunity input, small builder and curated HTML brief
 assets/     screenshot of the fictional reader brief

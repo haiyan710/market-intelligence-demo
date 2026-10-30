@@ -1,6 +1,6 @@
 # Where AI works in the multi-agent system
 
-This page describes the **implemented private pipeline** at a shareable level. Its source code, prompts containing company context, real input corpus and model credentials are not in this portfolio. The executable [`reference_pipeline/`](../reference_pipeline/README.md) demonstrates source, SQLite, lineage and rendering controls with invented data; it makes **zero model calls**. The [complete Avenra brief](../examples/interactive-demo.html) is a separately curated fictional reader example.
+This page describes the **implemented private pipeline** at a shareable level. Its production source code, company-context prompts, real input corpus and model credentials are not in this portfolio. [Sanitized agent configuration and prompt excerpts](../agent_specs/README.md) show the role and handoff contracts using fictional Avenra context. The executable [`reference_pipeline/`](../reference_pipeline/README.md) demonstrates source, SQLite, lineage and rendering controls with invented data; it makes **zero model calls**. The [complete Avenra brief](../examples/interactive-demo.html) is a separately curated fictional reader example.
 
 ## The execution path
 

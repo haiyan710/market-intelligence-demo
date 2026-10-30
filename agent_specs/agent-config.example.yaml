@@ -1,0 +1,30 @@
+# FICTIONAL / PUBLIC-SAFE CONFIGURATION EXAMPLE
+# Illustrates orchestration shape; not loaded by reference_pipeline/run.py.
+scenario: Avenra Travel on fictional Caelora
+model_adapter:
+  provider: claude_cli
+  output: text_then_typed_json_validation
+  tools: none
+  transient_failure: bounded_retry
+  fatal_failure: raise_to_calling_stage
+edition:
+  coverage_window_days: 4
+  sources: fictional_external_only
+  model_web_search: false
+  desk_article_cap: 25
+desks:
+  macro-policy: {enabled: true}
+  aviation: {enabled: true}
+  stay-experiences: {enabled: true}
+  distribution-competition: {enabled: true}
+handoffs:
+  classifier: article_id_to_desk_labels
+  desk: top_stories_opportunity_signals_forwards_context_vintage
+  coordinator: conflicts_only
+  opportunity_matcher: ambiguous_event_thread_pairs_only
+  editor: one_structured_edition_proposal
+release_boundary:
+  canonical_artifact: edition_json
+  reader_and_qc_rendering: deterministic
+  central_lines_required: [flight, hotel]
+  citation_and_date_checks: required
