@@ -32,7 +32,7 @@ Source records and dated reports
 | Quality control | Check factual headlines, source ownership, dates, duplication and evidence limits. | Review notes separate from reader copy |
 | Presentation | Show the full brief and clickable evidence links in one self-contained view. | Portfolio demo |
 
-## Implemented system pattern and public reference slice
+## Implemented system pattern and portfolio reference slice
 
 The private project behind this case study implements a scheduled, local source-to-brief pipeline. It gathers external material, stores normalized articles, uses model-assisted classification and specialist analysis, consolidates candidates in an edition editor, and applies deterministic validation before rendering a reader brief and a separate quality-control view. Its delivery and private archive are downstream of the canonical edition artifact. These are architectural descriptions, not a public service offered by this repository.
 

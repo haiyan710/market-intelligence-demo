@@ -4,7 +4,7 @@
 
 ![Fictional Avenra Travel brief](assets/avenra-brief.png)
 
-> **Portfolio disclosure:** Avenra Travel, the continent of Caelora, every supplier, event, number and source record in the sample are invented. The system described here is adapted from a separate private project. This repository is a public reference slice, not that project's source code, live pipeline, client data or measured business results.
+> **Portfolio disclosure:** Avenra Travel, the continent of Caelora, every supplier, event, number and source record in the sample are invented. The system described here is adapted from a separate private project. This repository is a shareable reference slice, not that project's source code, live pipeline, client data or measured business results.
 
 ## Why an OTA would use this
 
@@ -41,17 +41,21 @@ The underlying private system uses local scheduled collection, structured articl
 | Render reader and quality views from one artifact | Editorial review can inspect evidence without crowding the brief. |
 | Require flight and hotel representation | One product line does not disappear because another has louder news. |
 
-The [scope and limitations](docs/limitations.md) page distinguishes this public reference from the private implementation.
+The [scope and limitations](docs/limitations.md) page distinguishes this portfolio reference from the private implementation.
 
-## Run the fictional sample
+## Explore the fictional sample
 
 The sample OTA, **Avenra Travel**, is assumed to sell flights, hotels and premium stays, destination experiences and partner distribution in fictional Caelora.
+
+**Start with the [Avenra Market Brief](examples/interactive-demo.html)**, the reader-facing sample shown above. It follows the current brief's editorial flow: what changed by product line, ranked stories, a short digest, market context, ongoing situations and hypotheses with falsifiers. Every source link opens an embedded fictional record.
+
+To inspect a small offline implementation of the source-to-brief flow, run:
 
 ```bash
 python3 examples/build_demo.py
 ```
 
-That offline, standard-library script reads a synthetic fixture, validates it, ranks candidate signals and writes `examples/sample_brief.html`. Open that file, or open the [interactive mockup](examples/interactive-demo.html) directly in a browser. The interactive mockup includes flight and hotel signals, opportunity-radar hypotheses, and an embedded fictional source ledger. The script is deliberately a small illustration of the workflow, not a copy of the private production algorithm.
+That standard-library script reads a synthetic fixture, validates it, ranks candidate signals and writes [a compact generated brief](examples/sample_brief.html). This generated file demonstrates the code path; the Avenra Market Brief is the portfolio's full reader sample. The script is deliberately a small illustration of the workflow, not a copy of the private production algorithm.
 
 Read the [sample case](docs/sample-case.md) and [example guide](examples/README.md) for the signal logic and files.
 

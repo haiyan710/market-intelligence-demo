@@ -1,6 +1,6 @@
 # Engineering notes
 
-This page describes the implemented **private system pattern** behind the case study. The code and content in this public portfolio repository are an **offline reference slice** for fictional Avenra Travel on Caelora. They do not reproduce the private system's scheduler, data stores, model access, delivery path or hosted reader application.
+This page describes the implemented **private system pattern** behind the case study. The code and content in this portfolio repository are an **offline reference slice** for fictional Avenra Travel on Caelora. They do not reproduce the private system's scheduler, data stores, model access, delivery path or hosted reader application.
 
 ## End-to-end design
 
@@ -19,7 +19,7 @@ The scheduled pipeline runs locally. Python handles collection, normalization, o
 
 ## Contracts and checks
 
-| Concern | Private system pattern | What the public slice shows |
+| Concern | Private system pattern | What the portfolio slice shows |
 | --- | --- | --- |
 | Source provenance | Preserve a source's title, link, publisher and date; associate each claim with the source that supports it. | Embedded, dated **fictional** cards linked from the fictional brief. |
 | Novelty | Compare developments with recent editions, suppress unchanged repeats and keep historical material from becoming new news. | A documented editorial rule and a single illustrative edition. |
@@ -34,4 +34,4 @@ The checks act as release safeguards. Model output is treated as a candidate tha
 
 The private project uses offline unit and integration tests for article handling, artifact validation, editorial constraints, renderers and failure paths. External model and network calls are blocked in routine tests. A scheduled run still needs operational observation because passing tests cannot prove that external sources, credentials or delivery are healthy on that day.
 
-The public slice is intended to be inspected and opened locally. Its example facts belong to the fictional world and are not evidence of real market conditions or measured business outcomes.
+The portfolio slice is intended to be inspected and opened locally. Its example facts belong to the fictional world and are not evidence of real market conditions or measured business outcomes.
