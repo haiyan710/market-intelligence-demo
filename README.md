@@ -2,9 +2,19 @@
 
 **A multi-agent AI architecture case study with a runnable, fictional data-pipeline sample.** The implemented private system turns public market developments into an OTA brief with traceable facts and conditional hypotheses. This portfolio shows where model judgment enters that workflow and which checks remain in code.
 
+**My role:** I designed and built the source-to-edition pipeline, the bounded AI desk/editor handoffs, cross-edition opportunity state, evidence and release checks, and the reader/QC output path. This repository presents a sanitized design and a smaller executable reference, with the boundaries stated below.
+
 **[See the complete sample brief below](#complete-sample-brief)** · [Open the HTML edition](examples/interactive-demo.html)
 
 > **Portfolio disclosure:** Avenra Travel, the continent of Caelora, every supplier, event, number and source record in the sample are invented. The system described here is adapted from a separate private project. This repository is a shareable reference slice, not that project's source code, live pipeline, client data or measured business results.
+
+## One design decision in 60 seconds
+
+The fictional edition has **six source records**. Two report the same Kivora flight-bundle announcement, one older hotel record falls outside the edition window, and the reader ends with **four Signals** across flights and hotels. The reference pipeline stores both Kivora sources but creates one development; its QC shows the duplicate and the excluded record.
+
+Why lead with Kivora's **three bundles** when another carrier reports **14% more seats**? A possible channel-specific offer difference is closer to an OTA's flight-comparison product than a capacity change whose fare effect still depends on operated seats and demand. The brief states that as a **conditional hypothesis**: it would weaken if a dated public comparison showed equivalent bundles in Avenra's offers. The illustrative score is inspectable in code; it is not a measured business outcome or the private editor's ranking method.
+
+This is the design problem I worked on: turn external facts into a short, source-traceable multi-product brief while preventing duplicate events, unsupported implications and missing product lines. [Follow the complete source-to-brief case](docs/sample-case.md) and [the engineering decisions and tradeoffs](docs/design-decisions.md).
 
 ## Where AI is used
 
@@ -101,7 +111,7 @@ The [opportunity reasoning guide](docs/opportunity-reasoning.md) provides the de
 | Render reader and quality views from one artifact | Editorial review can inspect evidence without crowding the brief. |
 | Require flight and hotel representation | One product line does not disappear because another has louder news. |
 
-The [scope and limitations](docs/limitations.md) page distinguishes this portfolio reference from the private implementation.
+The [design decisions](docs/design-decisions.md) explain why these checks exist and what they cost. The [scope and limitations](docs/limitations.md) page distinguishes this portfolio reference from the private implementation.
 
 ## Complete sample brief
 
@@ -138,7 +148,7 @@ Read the [sample case](docs/sample-case.md) and [example guide](examples/README.
 ## Repository map
 
 ```text
-docs/       AI handoffs, deep architecture, agent roster, workflow, OTA value and limits
+docs/       case study, design decisions, AI handoffs, architecture and limits
 reference_pipeline/   fictional sources, SQLite pipeline, tests and generated views
 examples/   synthetic opportunity input, small builder and curated HTML brief
 assets/     screenshot of the fictional reader brief
