@@ -1,0 +1,102 @@
+{
+  "scenario": "FICTIONAL EXTERNAL SOURCES — all entities, places, dates, figures and records are invented",
+  "edition": {
+    "id": "avenra-2026-10-30",
+    "company": "Avenra Travel",
+    "window_start": "2026-10-26",
+    "window_end": "2026-10-29",
+    "as_of": "2026-10-30"
+  },
+  "sources": [
+    {
+      "source_id": "F-01",
+      "publisher": "Kivora Air scenario newsroom",
+      "source_title": "Kivora Air direct-connect fare bundles",
+      "source_kind": "fictional_external",
+      "published": "2026-10-27",
+      "development_id": "kivora-bundles",
+      "line": "flight",
+      "headline": "Kivora Air published direct-connect bundles on the Lyria–Mora route",
+      "fact": "Kivora Air listed three direct-connect fare bundles for Lyria–Mora; two include checked baggage.",
+      "hypothesis": "If equivalent bundles are absent from Avenra's public offers, its flight comparisons could differ by channel.",
+      "falsifier": "A dated public offer comparison shows equivalent bundles and conditions, or Kivora withdraws the bundles.",
+      "relevance": 3,
+      "evidence_depth": 2
+    },
+    {
+      "source_id": "F-01B",
+      "publisher": "Caelora Travel Bulletin scenario desk",
+      "source_title": "Kivora Air lists Lyria–Mora bundles",
+      "source_kind": "fictional_external",
+      "published": "2026-10-28",
+      "development_id": "kivora-bundles",
+      "line": "flight",
+      "headline": "Kivora Air published direct-connect bundles on the Lyria–Mora route",
+      "fact": "Kivora Air listed three direct-connect fare bundles for Lyria–Mora; two include checked baggage.",
+      "hypothesis": "If equivalent bundles are absent from Avenra's public offers, its flight comparisons could differ by channel.",
+      "falsifier": "A dated public offer comparison shows equivalent bundles and conditions, or Kivora withdraws the bundles.",
+      "relevance": 3,
+      "evidence_depth": 1
+    },
+    {
+      "source_id": "H-01",
+      "publisher": "Selune Stays scenario catalogue",
+      "source_title": "Selune Stays wellness catalogue update",
+      "source_kind": "fictional_external",
+      "published": "2026-10-28",
+      "development_id": "selune-wellness",
+      "line": "hotel",
+      "headline": "Selune Stays listed 18 wellness properties in the Solenne region",
+      "fact": "Selune Stays added 18 wellness properties across Solenne; 11 list package inclusions.",
+      "hypothesis": "If Avenra has few comparable stays, other catalogues may show broader premium choice in Solenne.",
+      "falsifier": "A dated public catalogue comparison shows equivalent breadth and package terms, or the listings do not become bookable.",
+      "relevance": 3,
+      "evidence_depth": 2
+    },
+    {
+      "source_id": "F-02",
+      "publisher": "Orivo Air scenario schedule",
+      "source_title": "Orivo Air Vela–Iskar corridor schedule",
+      "source_kind": "fictional_external",
+      "published": "2026-10-26",
+      "development_id": "orivo-capacity",
+      "line": "flight",
+      "headline": "Orivo Air scheduled 14% more seats on the Vela–Iskar corridor",
+      "fact": "Orivo Air's schedule shows 14% more seats on Vela–Iskar for six weeks than its prior file.",
+      "hypothesis": "Additional scheduled capacity could affect available fares if the seats operate and demand does not absorb them.",
+      "falsifier": "A later operated-capacity report shows the filed seats did not operate, or fares and available seats remain unchanged.",
+      "relevance": 2,
+      "evidence_depth": 2
+    },
+    {
+      "source_id": "H-02",
+      "publisher": "Teralis Lodges scenario bulletin",
+      "source_title": "Teralis Lodges refundable API rate bulletin",
+      "source_kind": "fictional_external",
+      "published": "2026-10-29",
+      "development_id": "teralis-flexible-rates",
+      "line": "hotel",
+      "headline": "Teralis Lodges added refundable API rates for 42 properties",
+      "fact": "Teralis Lodges identified 42 properties with newly published refundable rate plans in its API feed.",
+      "hypothesis": "If those plans reach Avenra at competitive prices, they could broaden its flexible hotel options.",
+      "falsifier": "A dated public product check shows equivalent refundable plans already visible, or the new plans are withdrawn.",
+      "relevance": 2,
+      "evidence_depth": 2
+    },
+    {
+      "source_id": "B-OLD",
+      "publisher": "Lumen Suites scenario newsroom",
+      "source_title": "Lumen Suites city property catalogue",
+      "source_kind": "fictional_external",
+      "published": "2026-10-20",
+      "development_id": "lumen-city-stays",
+      "line": "hotel",
+      "headline": "Lumen Suites listed six flexible-rate city properties in Miren",
+      "fact": "Lumen Suites listed six Miren properties with flexible-rate labels.",
+      "hypothesis": "The supplier-side catalogue could broaden flexible city stay choice if the rates are available to sellers.",
+      "falsifier": "A later public catalogue removes the properties or shows no flexible rates.",
+      "relevance": 1,
+      "evidence_depth": 1
+    }
+  ]
+}

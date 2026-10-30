@@ -1,0 +1,18 @@
+name: Reference pipeline
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  offline-checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Test source and edition controls
+        run: python3 -m unittest discover -s reference_pipeline/tests -v
+      - name: Build fictional reference edition
+        run: python3 reference_pipeline/run.py --output /tmp/avenra-reference

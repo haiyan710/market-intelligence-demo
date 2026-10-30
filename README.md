@@ -6,6 +6,19 @@
 
 > **Portfolio disclosure:** Avenra Travel, the continent of Caelora, every supplier, event, number and source record in the sample are invented. The system described here is adapted from a separate private project. This repository is a shareable reference slice, not that project's source code, live pipeline, client data or measured business results.
 
+## Run the data pipeline
+
+The executable reference slice lets you inspect the engineering path behind an edition. It uses **Python, SQLite and local fictional source fixtures**; it needs no account, model, network connection or external package.
+
+```bash
+python3 reference_pipeline/run.py --output reference_pipeline/output
+python3 -m unittest discover -s reference_pipeline/tests -v
+```
+
+The first command writes a normalized `sources.sqlite` store, a canonical `edition.json`, a generated `reader.html` and an operator `qc.html`. Replaying the same fixture keeps the source row count and rendered artifact bytes stable. The five tests cover idempotent replay, two-source development grouping, provenance and date rejection, flight/hotel release coverage, and visible source lineage. [Open the reference pipeline guide](reference_pipeline/README.md), [data contracts](docs/data-contracts.md) and [engineering notes](docs/engineering.md) for inputs, controls and limits.
+
+The [complete visual brief](#complete-sample-brief) is a separate, curated portfolio example. The generated reader is deliberately simpler; this repository does not claim that the offline slice implements the private system's agents, cross-edition memory, model calls or delivery.
+
 ## Why an OTA would use this
 
 An OTA has to understand flight capacity and distribution, hotel supply, destination discovery and market inputs together. A news feed presents many facts, but leaves the reader to work out which ones touch their product catalogue and what remains uncertain. This system is designed to produce a brief that answers three questions:
@@ -62,7 +75,7 @@ source fact → market first mover → transmission channel → OTA exposure
             → conditional so_what → testable falsifier → later evidence/revision
 ```
 
-The [opportunity reasoning guide](docs/opportunity-reasoning.md) provides the decision matrix, evidence limits and an annotated Avenra case. The [offline fixture](examples/fixture.json) and [small builder](examples/build_demo.py) make the first mover, channel, assumed exposure, missing evidence and falsifier inspectable in code. They illustrate the contract; the full cross-edition ledger and editorial gates remain in the private implementation.
+The [opportunity reasoning guide](docs/opportunity-reasoning.md) provides the decision matrix, evidence limits and an annotated Avenra case. The [offline fixture](examples/fixture.json) and [small builder](examples/build_demo.py) make the first mover, channel, assumed exposure, missing evidence and falsifier inspectable in code. The [reference pipeline](reference_pipeline/README.md) separately demonstrates source ingestion, lineage and release checks. These examples illustrate selected contracts; the full cross-edition ledger and editorial gates remain in the private implementation.
 
 | Design decision | Why it matters |
 | --- | --- |
@@ -95,15 +108,15 @@ The full reader edition is displayed below. It contains:
 
 Open the [HTML edition](examples/interactive-demo.html) to use its story and source links and expand the analysis notes. The screenshot shows the entire brief, including the source ledger; all names, places, events, sources and figures are synthetic.
 
-### Inspect the offline code slice
+### Inspect the small brief builder
 
-To inspect a small offline implementation of the source-to-brief flow, run:
+To inspect a second, smaller illustration of opportunity fields and brief rendering, run:
 
 ```bash
 python3 examples/build_demo.py
 ```
 
-That standard-library script reads a synthetic fixture, validates it, ranks candidate signals and writes [a compact generated brief](examples/sample_brief.html). This generated file demonstrates the code path; the Avenra Market Brief is the portfolio's full reader sample. The script is deliberately a small illustration of the workflow, not a copy of the private production algorithm.
+That standard-library script reads a synthetic fixture, validates it, ranks candidate signals and writes [a compact generated brief](examples/sample_brief.html). The [reference pipeline](reference_pipeline/README.md) above is the primary runnable data-engineering example. The Avenra Market Brief is the portfolio's full reader sample; neither generated page is a copy of the private production algorithm.
 
 Read the [sample case](docs/sample-case.md) and [example guide](examples/README.md) for the signal logic and files.
 
@@ -111,7 +124,8 @@ Read the [sample case](docs/sample-case.md) and [example guide](examples/README.
 
 ```text
 docs/       deep architecture, agent roster, workflow, OTA value and limits
-examples/   synthetic input, small offline builder and sample HTML views
+reference_pipeline/   fictional sources, SQLite pipeline, tests and generated views
+examples/   synthetic opportunity input, small builder and curated HTML brief
 assets/     screenshot of the fictional reader brief
 ```
 
