@@ -6,7 +6,7 @@ The workflow below reflects the implemented private system's source-to-brief des
 2. **Collect source material.** The private system retains original links, titles, publishers and dates for public material. This sample instead uses dated fictional cards embedded in the page. Both exclude private booking, customer and operational data.
 3. **Find developments.** Group reports about the same underlying event. Identify the market, named actors and affected product line.
 4. **Place each development on the market map.** Ask whether demand, supply, price, distribution or a cost input moves first. Distinguish an observed change from a possible downstream effect.
-5. **Draft a signal.** Write a factual headline and a short account of what changed. Write the OTA implication as a conditional hypothesis with an explicit transmission chain and timeframe.
+5. **Draft a signal.** Write a factual headline and a short account of what changed. Write the OTA implication as a conditional hypothesis with an explicit transmission chain, direction and timing where evidence supports them.
 6. **Select the edition.** Favor evidence-rich developments that touch the fictional OTA's stated portfolio. Keep flights and hotels represented when qualifying developments exist. Avoid repeating a previously covered event without a material update.
 7. **Review the output.** Verify each claim against its cited record and date. Check that the record's central subject supports the headline and the proposed implication does not overstate the evidence. In a real edition, also check that public source links work.
 8. **Publish the reader view.** Keep the complete brief inline. Put coverage and quality notes in a separate review view.

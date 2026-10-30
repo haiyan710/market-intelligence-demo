@@ -53,6 +53,17 @@ The implemented edition runtime has **four specialist desk calls**, a cross-desk
 
 Classification, situation tracking, entity roles, text measures, health checks and the knowledge maintainer surround that core flow. Some use a model through a shared adapter; others are deterministic. The [agent roster and orchestration guide](docs/agents-and-orchestration.md) distinguishes every role, handoff and rollout state.
 
+## How an opportunity is reasoned about
+
+An opportunity starts with a **dated, source-supported event**. A company-specific `so_what` traces the event through a demand, supply, price or distribution mechanism to an assumed OTA product exposure. A separate Radar hypothesis records what later observation would **falsify** that reading. The editor can route a candidate to a full Signal, a short factual note, Radar, or operator-only review; a falsifier's presence alone does not earn a Radar card.
+
+```text
+source fact → market first mover → transmission channel → OTA exposure
+            → conditional so_what → testable falsifier → later evidence/revision
+```
+
+The [opportunity reasoning guide](docs/opportunity-reasoning.md) provides the decision matrix, evidence limits and an annotated Avenra case. The [offline fixture](examples/fixture.json) and [small builder](examples/build_demo.py) make the first mover, channel, assumed exposure, missing evidence and falsifier inspectable in code. They illustrate the contract; the full cross-edition ledger and editorial gates remain in the private implementation.
+
 | Design decision | Why it matters |
 | --- | --- |
 | Keep source records and dates attached to claims | The reader can inspect the reported fact behind a headline. |

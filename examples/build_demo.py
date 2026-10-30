@@ -34,6 +34,12 @@ def collect_fixture(path: Path) -> dict:
         for key in ("source", "headline", "fact", "hypothesis"):
             if not record[key].strip():
                 raise ValueError(f"{record['id']} has an empty {key}")
+        reasoning = record.get("reasoning")
+        if not isinstance(reasoning, dict):
+            raise ValueError(f"{record['id']} needs a structured reasoning trace")
+        for key in ("first_mover", "channel", "exposure", "evidence_gap", "falsifier"):
+            if not isinstance(reasoning.get(key), str) or not reasoning[key].strip():
+                raise ValueError(f"{record['id']} has no reasoning.{key}")
     return scenario
 
 
@@ -63,12 +69,20 @@ def render(scenario: dict, records: list[dict]) -> str:
     for record in records:
         source_id = esc(record["id"], quote=True)
         line = esc(record["line"])
+        reasoning = record["reasoning"]
         cards.append(f"""
         <article class="card {line}">
           <div class="meta"><span class="tag">{line}</span><span>Scenario signal · {source_id}</span></div>
           <h2>{esc(record['headline'])}</h2>
           <h3>What changed</h3><p>{esc(record['fact'])}</p>
           <h3>Conditional implication</h3><p class="hypothesis">{esc(record['hypothesis'])}</p>
+          <details><summary>Reasoning and falsifier</summary><div class="reasoning">
+            <p><b>First mover:</b> {esc(reasoning['first_mover'])}</p>
+            <p><b>Transmission:</b> {esc(reasoning['channel'])}</p>
+            <p><b>Assumed OTA exposure:</b> {esc(reasoning['exposure'])}</p>
+            <p><b>Evidence still needed:</b> {esc(reasoning['evidence_gap'])}</p>
+            <p><b>Falsifier:</b> {esc(reasoning['falsifier'])}</p>
+          </div></details>
           <footer><a href="#source-{source_id}">{esc(record['source'])}</a> · published {esc(record['published'])} · as of {esc(scenario['edition_date'])} · synthetic</footer>
         </article>""")
         sources.append(f"""
@@ -81,7 +95,7 @@ def render(scenario: dict, records: list[dict]) -> str:
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{esc(scenario['company'])} · sample intelligence brief</title>
 <style>
-*{{box-sizing:border-box}}body{{margin:0;background:#f5f8f7;color:#172b3e;font:15px/1.6 system-ui,-apple-system,sans-serif}}a{{color:#087d79}}header.hero{{background:#112338;color:#fff;padding:52px max(24px,calc((100vw - 1050px)/2)) 48px}}.eyebrow{{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#8cd4bf;font-weight:800}}h1{{font-size:clamp(32px,5vw,52px);line-height:1.08;letter-spacing:-.05em;margin:9px 0}}.hero p{{color:#c6d7dd;max-width:650px}}main{{max-width:1100px;margin:0 auto;padding:32px 24px 65px}}.warning{{border:1px solid #e7cb99;background:#fff6e5;color:#6e542b;padding:12px 16px;border-radius:9px;font-size:12px;font-weight:700}}.summary{{display:flex;gap:16px;flex-wrap:wrap;margin:28px 0}}.summary span{{background:#e0f1ea;border-radius:7px;padding:9px 13px;font-size:12px;font-weight:700;color:#12635c}}.grid{{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:17px}}.card,.source{{background:#fff;border:1px solid #dce6e7;border-radius:12px;padding:24px}}.card{{display:flex;flex-direction:column}}.card.flight{{border-top:4px solid #087d79}}.card.hotel{{border-top:4px solid #d97860}}.meta{{display:flex;justify-content:space-between;color:#7b8995;font-size:11px;gap:10px}}.tag{{font-size:10px;text-transform:uppercase;letter-spacing:.1em;font-weight:800;color:#087d79}}.hotel .tag{{color:#b45d49}}h2{{font-size:21px;line-height:1.25;letter-spacing:-.03em;margin:18px 0}}.card h3{{font-size:10px;text-transform:uppercase;letter-spacing:.14em;color:#81919f;margin:8px 0 3px}}p{{margin:0 0 10px}}.card p{{font-size:13px}}.hypothesis{{border-left:2px solid #a7d7ca;padding-left:11px}}.card footer{{border-top:1px solid #e3ebec;margin-top:auto;padding-top:14px;font-size:11px;color:#687b8c}}.section-title{{font-size:24px;letter-spacing:-.04em;margin:45px 0 15px}}.source{{margin-bottom:12px;scroll-margin-top:15px}}.source:target{{outline:3px solid #9ad8c8}}.source h3{{font-size:16px;margin:7px 0}}.source p,.source small{{font-size:12px}}.source small{{color:#728391}}@media(max-width:720px){{.grid{{grid-template-columns:1fr}}}}
+*{{box-sizing:border-box}}body{{margin:0;background:#f5f8f7;color:#172b3e;font:15px/1.6 system-ui,-apple-system,sans-serif}}a{{color:#087d79}}header.hero{{background:#112338;color:#fff;padding:52px max(24px,calc((100vw - 1050px)/2)) 48px}}.eyebrow{{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#8cd4bf;font-weight:800}}h1{{font-size:clamp(32px,5vw,52px);line-height:1.08;letter-spacing:-.05em;margin:9px 0}}.hero p{{color:#c6d7dd;max-width:650px}}main{{max-width:1100px;margin:0 auto;padding:32px 24px 65px}}.warning{{border:1px solid #e7cb99;background:#fff6e5;color:#6e542b;padding:12px 16px;border-radius:9px;font-size:12px;font-weight:700}}.summary{{display:flex;gap:16px;flex-wrap:wrap;margin:28px 0}}.summary span{{background:#e0f1ea;border-radius:7px;padding:9px 13px;font-size:12px;font-weight:700;color:#12635c}}.grid{{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:17px}}.card,.source{{background:#fff;border:1px solid #dce6e7;border-radius:12px;padding:24px}}.card{{display:flex;flex-direction:column}}.card.flight{{border-top:4px solid #087d79}}.card.hotel{{border-top:4px solid #d97860}}.meta{{display:flex;justify-content:space-between;color:#7b8995;font-size:11px;gap:10px}}.tag{{font-size:10px;text-transform:uppercase;letter-spacing:.1em;font-weight:800;color:#087d79}}.hotel .tag{{color:#b45d49}}h2{{font-size:21px;line-height:1.25;letter-spacing:-.03em;margin:18px 0}}.card h3{{font-size:10px;text-transform:uppercase;letter-spacing:.14em;color:#81919f;margin:8px 0 3px}}p{{margin:0 0 10px}}.card p{{font-size:13px}}.hypothesis{{border-left:2px solid #a7d7ca;padding-left:11px}}.card details{{font-size:12px;margin:0 0 12px}}.card summary{{cursor:pointer;color:#087d79;font-weight:700}}.reasoning{{background:#f5f8f7;border-left:2px solid #a7d7ca;padding:10px 12px;margin-top:8px}}.reasoning p{{margin:0 0 6px}}.card footer{{border-top:1px solid #e3ebec;margin-top:auto;padding-top:14px;font-size:11px;color:#687b8c}}.section-title{{font-size:24px;letter-spacing:-.04em;margin:45px 0 15px}}.source{{margin-bottom:12px;scroll-margin-top:15px}}.source:target{{outline:3px solid #9ad8c8}}.source h3{{font-size:16px;margin:7px 0}}.source p,.source small{{font-size:12px}}.source small{{color:#728391}}@media(max-width:720px){{.grid{{grid-template-columns:1fr}}}}
 </style></head><body>
 <header class="hero"><span class="eyebrow">{esc(scenario['company'])} / reader edition</span><h1>Travel market signals</h1><p>{esc(scenario['window'])} · {esc(scenario['continent'])} · A fictional OTA portfolio spanning flights, hotels, experiences and partner distribution.</p></header>
 <main><div class="warning">FICTIONAL SIMULATION · All companies, places, figures, dates and sources are invented for this portfolio example. No real market claim or business result is represented.</div>

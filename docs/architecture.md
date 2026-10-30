@@ -43,7 +43,7 @@ This portfolio repository contains an **offline reference slice** of that patter
 - A headline describes an observable statement in its cited source record. The demo's records are explicitly fictional.
 - In the private production pattern, each real-world factual claim identifies its public publisher, link and as-of date. In this sample, each in-world claim points to a dated embedded fictional source card.
 - A company-specific implication is explicitly a hypothesis. It states the assumed product exposure and the mechanism that would connect the sourced development to that exposure.
-- An evidence limit or uncertainty belongs in the review record, while the reader brief stays legible.
+- Source-quality limits such as thin or single-source support belong in operator review. Substantive uncertainty in the causal implication remains visible to the reader.
 - A source record dated outside the edition window provides background only; it does not become a new event merely because it was discovered later.
 
 This separation makes it possible to inspect the chain from source to interpretation without treating the interpretation as a verified fact.

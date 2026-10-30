@@ -2,7 +2,7 @@
 
 Avenra Travel is assumed to sell flights, hotels and experiences across consumer and trade channels on Caelora. This mix creates several ways a market development could matter. The demo shows how to explain those links without claiming access to any OTA's private performance data.
 
-| Product line | Public development to monitor | Question the brief helps frame |
+| Product line | Type of external development to monitor | Question the brief helps frame |
 | --- | --- | --- |
 | Flights | Carrier capacity, route changes, distribution standards and fare inputs | Which parts of the public air-content landscape may affect available itineraries or price competition? |
 | Hotels | Property openings, hotel distribution arrangements and premium or wellness supply | Where might accommodation choice or product differentiation change? |

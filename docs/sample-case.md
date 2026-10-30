@@ -1,4 +1,4 @@
-# Sample case: reading one development across product lines
+# Sample case: reading two related developments across product lines
 
 This is a **fictional teaching scenario**. The company, market event and source record below are invented to show the analytical format. They must not be quoted as real news or included in a live edition.
 

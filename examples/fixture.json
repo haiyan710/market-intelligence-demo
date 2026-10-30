@@ -13,6 +13,13 @@
       "headline": "Kivora Air publishes direct-connect bundles on the Lyria–Mora route",
       "fact": "The fictional notice lists three fare bundles on Kivora Air's direct-connect channel for Lyria–Mora; two include checked baggage.",
       "hypothesis": "If those bundles are unavailable through Avenra's existing air feeds, comparable fares could differ by channel. The size of any gap depends on actual feed coverage and demand.",
+      "reasoning": {
+        "first_mover": "Flight-content supply changes in a direct carrier channel.",
+        "channel": "Channel-specific bundle conditions could alter which offers are visible to a traveller.",
+        "exposure": "Avenra is assumed to sell this route; its actual feed coverage is unknown.",
+        "evidence_gap": "A dated comparison of publicly displayed bundles for the same route and travel dates.",
+        "falsifier": "Equivalent bundles and conditions are already visible in Avenra's public offers, or Kivora withdraws them."
+      },
       "relevance": 3,
       "evidence": 2
     },
@@ -23,7 +30,14 @@
       "published": "2026-10-28",
       "headline": "Selune Stays lists 18 wellness properties in the Solenne region",
       "fact": "The fictional catalogue adds 18 wellness properties across Solenne, with package inclusions published for 11.",
-      "hypothesis": "If Avenra's premium stay catalogue has limited Solenne wellness depth, this addition could widen the visible assortment gap. The effect requires comparable inventory and search data.",
+      "hypothesis": "If Avenra's premium stay catalogue has limited Solenne wellness depth, this addition could widen the visible assortment gap. The effect requires comparable public listings and traveller-interest evidence.",
+      "reasoning": {
+        "first_mover": "Premium hotel supply expands in the fictional destination.",
+        "channel": "New supplier listings could change the breadth shown by competing hotel catalogues.",
+        "exposure": "Avenra is assumed to sell premium stays; its Solenne assortment is not supplied in this fixture.",
+        "evidence_gap": "A dated comparison of public hotel listings and package terms across sellers.",
+        "falsifier": "Comparable Solenne wellness stays are already visible through Avenra, or the supplier listings never become bookable."
+      },
       "relevance": 3,
       "evidence": 2
     },
@@ -35,6 +49,13 @@
       "headline": "Orivo Air schedules 14% more seats on the Vela–Iskar corridor",
       "fact": "The fictional schedule shows 14% more scheduled seats on Vela–Iskar for the next six weeks than its preceding file.",
       "hypothesis": "Additional scheduled capacity could affect available fares if the seats operate and demand does not absorb them. No fare or booking outcome is assumed.",
+      "reasoning": {
+        "first_mover": "Planned seat supply rises on one corridor for a six-week period.",
+        "channel": "Operated capacity could widen flight choice, then influence fares after demand responds.",
+        "exposure": "Avenra is assumed to display this corridor; no sales or customer data is used.",
+        "evidence_gap": "Operated schedules and observed public fares after the additional flights start.",
+        "falsifier": "The filed seats do not operate, or observed capacity and fares show no material change over the stated period."
+      },
       "relevance": 2,
       "evidence": 2
     },
@@ -46,6 +67,13 @@
       "headline": "Teralis Lodges adds refundable API rates for 42 properties",
       "fact": "The fictional API bulletin identifies 42 properties with newly published refundable rate plans.",
       "hypothesis": "If Avenra receives these rate plans and they are price-competitive, the change could broaden flexible hotel options. Catalogue availability remains unverified.",
+      "reasoning": {
+        "first_mover": "Refundable hotel rate-plan supply expands in a supplier API.",
+        "channel": "The new plans could widen flexible options only after they reach a seller's public catalogue.",
+        "exposure": "Avenra is assumed to sell hotel stays; this fixture has no private feed-access or booking data.",
+        "evidence_gap": "A dated public product check of refundable availability and comparable prices.",
+        "falsifier": "The plans are already displayed with equivalent terms, or they never become publicly bookable."
+      },
       "relevance": 2,
       "evidence": 2
     }
