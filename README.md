@@ -1,6 +1,6 @@
-# Travel Market Intelligence for OTAs
+# Multi-Agent Market Intelligence Workflow for Travel OTAs
 
-**A multi-agent AI architecture case study with a runnable, fictional data-pipeline sample.** The implemented private system turns public market developments into an OTA brief with traceable facts and conditional hypotheses. This portfolio shows where model judgment enters that workflow and which checks remain in code.
+**A multi-agent AI workflow for travel market intelligence.** The implemented private system routes public market sources through specialist analysis agents, opportunity memory and an edition editor to produce evidence-linked briefs for online travel agencies (OTAs). This portfolio explains the agent orchestration and data contracts, and includes a runnable Python/SQLite reference pipeline and a fictional OTA sample. The model-calling runtime itself remains private.
 
 **My role:** I designed and built the source-to-edition pipeline, the bounded AI desk/editor handoffs, cross-edition opportunity state, evidence and release checks, and the reader/QC output path. This repository presents a sanitized design and a smaller executable reference, with the boundaries stated below.
 
@@ -16,9 +16,9 @@ Why lead with Kivora's **three bundles** when another carrier reports **14% more
 
 This is the design problem I worked on: turn external facts into a short, source-traceable multi-product brief while preventing duplicate events, unsupported implications and missing product lines. [Follow the complete source-to-brief case](docs/sample-case.md) and [the engineering decisions and tradeoffs](docs/design-decisions.md).
 
-## Where AI is used
+## Multi-agent workflow: where AI is used
 
-The private pipeline is an **orchestrated set of bounded model calls**, each with a specific input and structured handoff. A shared Claude CLI adapter handles those calls; the scheduled pipeline does not let the model browse for evidence.
+The private market intelligence pipeline is an **orchestrated set of bounded model calls**, each with a specific input and structured handoff. A shared Claude CLI adapter handles those calls; the scheduled pipeline does not let the model browse for evidence.
 
 | AI stage | What it receives | What it produces |
 | --- | --- | --- |
@@ -31,7 +31,7 @@ The private pipeline is an **orchestrated set of bounded model calls**, each wit
 
 Code controls collection, source IDs, SQLite state, date windows, schema and citation validation, duplicate/release checks, ranking adjustments and rendering of reader/QC views. The model proposes analysis and editorial choices within those boundaries; humans make commercial decisions. **[Inspect the sanitized agent config and prompt excerpts](agent_specs/README.md)** to see the instructions and JSON handoffs; the [AI workflow trace](docs/ai-workflow.md) explains their order and failure behavior.
 
-## Run the data pipeline
+## Run the data engineering reference pipeline
 
 The executable reference slice lets you inspect the engineering path behind an edition. It uses **Python, SQLite and local fictional source fixtures**; it needs no account, model, network connection or external package.
 
