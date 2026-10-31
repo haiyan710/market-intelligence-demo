@@ -1,6 +1,6 @@
-# Multi-Agent Market Intelligence Workflow for Travel OTAs
+# Multi-Agent Market Intelligence Workflow for Online Travel Agencies (OTAs)
 
-**A multi-agent AI workflow for travel market intelligence.** The implemented private system routes public market sources through specialist analysis agents, opportunity memory and an edition editor to produce evidence-linked briefs for online travel agencies (OTAs). This portfolio explains the agent orchestration and data contracts, and includes a runnable Python/SQLite reference pipeline and a fictional OTA sample. The model-calling runtime itself remains private.
+**A multi-agent market intelligence workflow for an online travel agency (OTA).** The implemented private system routes public market sources through specialist AI analysis agents, opportunity memory and an edition editor to produce evidence-linked travel briefs. This portfolio explains the agent orchestration and data contracts, and includes a runnable Python/SQLite reference pipeline and a fictional OTA sample. The model-calling runtime itself remains private.
 
 **My role:** I designed and built the source-to-edition pipeline, the bounded AI desk/editor handoffs, cross-edition opportunity state, evidence and release checks, and the reader/QC output path. This repository presents a sanitized design and a smaller executable reference, with the boundaries stated below.
 
